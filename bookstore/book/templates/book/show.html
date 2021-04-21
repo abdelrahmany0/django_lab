@@ -1,0 +1,13 @@
+{% extends "layouts/main.html" %}
+
+{% block title %}
+    index
+{% endblock %}
+
+{% block body %}
+    <h2>Book details:</h2>
+    <h3>Title: </h3>
+    <p>{{ book.title }}</p>
+    <h3>Content: </h3>
+    <p>{{ book.content }}</p>
+{% endblock %}
