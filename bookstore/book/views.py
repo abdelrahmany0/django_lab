@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from .forms import BookForm
 from .models import Book, Isbn
 
-
+# g
 def index(request):
     return render(request, 'book/index.html', {
         "books": Book.objects.all()
