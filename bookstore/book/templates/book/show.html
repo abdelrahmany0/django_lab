@@ -5,9 +5,12 @@
 {% endblock %}
 
 {% block body %}
-    <h2>Book details:</h2>
-    <h3>Title: </h3>
-    <p>{{ book.title }}</p>
+    <h2>Book #{{ book.id }} details:</h2>
+    <h3 class="d-inline-block">Author: </h3>
+    <p class="d-inline-block">{{ book.author }}</p>
+    <br>
+    <h3 class="d-inline-block">Title: </h3>
+    <p class="d-inline-block">{{ book.title }}</p>
     <h3>Content: </h3>
-    <p>{{ book.content }}</p>
+    <p class="font-weight-bolder">{{ book.content }}</p>
 {% endblock %}

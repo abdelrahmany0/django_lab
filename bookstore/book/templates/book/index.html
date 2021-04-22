@@ -11,6 +11,7 @@
     <tr>
       <th scope="col">#ID</th>
       <th scope="col">Title</th>
+      <th scope="col">Author</th>
       <th scope="col">Controls</th>
     </tr>
   </thead>
@@ -19,8 +20,9 @@
                 <tr>
                     <td>{{ book.id }}</td>
                     <td>{{ book.title }}</td>
+                    <td>{{ book.author }}</td>
                     <td>
-                        <a class="btn btn-secondary" href="{% url 'show' book.id %}">details</a>
+                        <a class="btn btn-info" href="{% url 'show' book.id %}">details</a>
                         <a class="btn btn-success" href="{% url 'edit' book.id %}">Edit</a>
                         <a class="btn btn-danger" href="{% url 'delete' book.id %}">Delete</a>
                     </td>

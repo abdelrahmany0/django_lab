@@ -5,9 +5,10 @@
 {% endblock %}
 
 {% block body %}
-<form action="{% url 'create' %}" method="POST">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Add</button>
-</form>
+    <form action="{% url 'create' %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {{ ISBN.Isbn }}
+        <button type="submit">Add</button>
+    </form>
 {% endblock %}

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import BookForm
-from .models import Book
+from .models import Book, Isbn
 
 
 def index(request):
@@ -12,12 +12,17 @@ def index(request):
 
 def create(request):
     form = BookForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-        return redirect('index')
 
+    if form.is_valid():
+        book = form.save()
+        if book:
+            ISBN = Isbn.objects.create()
+            book.isbn = ISBN
+            book.save()
+
+        return redirect('index')
     return render(request, "book/create.html", {
-        "form": form
+        "form": form,
     })
 
 
