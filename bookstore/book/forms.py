@@ -13,7 +13,7 @@ class BookForm(forms.ModelForm):
     def clean(self):
         title = self.cleaned_data.get("title")
         content = self.cleaned_data.get("content")
-        if len(title) < 10 or len(title) > 50:
+        if len(title) < 4 or len(title) > 50:
             raise ValidationError("title must be between 10 to 50 characters!")
         if len(content) < 2:
             raise ValidationError("content must be at least 2 chars!!")

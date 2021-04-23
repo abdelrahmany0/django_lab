@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'book',
+    'book.apps.BookConfig',
     'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -53,7 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'accounts.middleware.SimpleMiddleware',
+    # 'accounts.middleware.SimpleMiddleware',
 ]
 
 ROOT_URLCONF = 'bookstore.urls'

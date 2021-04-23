@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from .forms import BookForm
 from .models import Book, Isbn
 
+
 @login_required
 def index(request):
     return render(request, 'book/index.html', {
@@ -18,10 +19,9 @@ def create(request):
 
     if form.is_valid():
         book = form.save()
-        if book:
-            ISBN = Isbn.objects.create()
-            book.isbn = ISBN
-            book.save()
+        # ISBN = Isbn.objects.create()
+        # book.isbn = ISBN
+        book.save()
 
         return redirect('index')
     return render(request, "book/create.html", {
