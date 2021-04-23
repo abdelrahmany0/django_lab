@@ -5,13 +5,13 @@ from .forms import BookForm
 from .models import Book, Isbn
 
 
-@login_required
 def index(request):
     return render(request, 'book/index.html', {
         "books": Book.objects.all()
     })
 
 
+@login_required(login_url="/login")
 def create(request):
     form = BookForm(request.POST or None)
 
