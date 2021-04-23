@@ -1,4 +1,4 @@
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import BookForm
@@ -11,7 +11,8 @@ def index(request):
     })
 
 
-@login_required(login_url="/login")
+@login_required
+@permission_required(["book.add_book"], raise_exception=True)
 def create(request):
     form = BookForm(request.POST or None)
 
@@ -28,6 +29,7 @@ def create(request):
     })
 
 
+@permission_required(["book.edit_book"], raise_exception=True)
 def edit(request, id):
     book = Book.objects.get(pk=id)
     form = BookForm(request.POST or None, instance=book)

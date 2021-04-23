@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+LOGIN_URL = "/login"
 LOGIN_REDIRECT_URL = "/book/"
 LOGOUT_REDIRECT_URL = "/book/"
 
