@@ -5,7 +5,7 @@ from .forms import BookForm
 from .models import Book, Isbn
 
 
-@login_required
+# @login_required
 def index(request):
     return render(request, 'book/index.html', {
         "books": Book.objects.all()
@@ -46,12 +46,10 @@ def edit(request, id):
 @permission_required(["book.delete_book"], raise_exception=True)
 def delete(request, id):
     book = Book.objects.get(pk=id)
-    form = BookForm(request.POST or None, instance=book)
     book.delete()
     return redirect('index')
 
 
-@permission_required(["book.view_book"], raise_exception=True)
 def show(request, id):
     return render(request, 'book/show.html', {
         "book": Book.objects.get(pk=id)

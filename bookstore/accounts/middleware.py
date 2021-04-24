@@ -9,8 +9,7 @@ class SimpleMiddleware:
     def __call__(self, request):
         # Code to be executed for each request before
         # the view (and later middleware) are called.
-        # print(request.user)
-        if request.user.is_authenticated and not request.user.is_superuser:
+        if not request.user.is_superuser and not request.user.is_anonymous:
             return HttpResponseForbidden("Your are not an active user, please contact the admin")
 
         # Code to be executed for each request/response after

@@ -6,4 +6,4 @@ class BookConfig(AppConfig):
     name = 'book'
 
     def ready(self):
-        from . import signals
+        pass
