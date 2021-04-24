@@ -41,6 +41,23 @@ def create(request):
     )
 
 
+@api_view(["PUT"])
+def edit(request, id):
+    book = Book.objects.get(pk=id)
+    serializer = BookSerializer(book, data=request.data, partial=True)
+    if serializer.is_valid():
+        serializer.save()
+        # BookSerializer.update(book)
+        return Response(
+            data={"success": True, "message": "Book updated successfully"},
+            status=status.HTTP_201_CREATED
+        )
+    return Response(
+        data={"success": False, "errors": serializer.errors},
+        status=status.HTTP_400_BAD_REQUEST
+    )
+
+
 @api_view(["DELETE"])
 def delete(request, id):
     if Book.objects.filter(pk=id).exists():
